@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko" data-fontsize="standard" data-width="standard" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- (1) 아래 제목을 자신의 이름으로 바꾸세요 -->
+  <title>정예준 - 우리반 백과</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 맨 위 머리글 ===== -->
+  <header class="topbar">
+    <div class="logo">우</div>
+    <div class="sitename">
+      <strong>우리반 백과</strong>
+      <span>우리 반 모두의 백과사전</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- ===== 왼쪽 목차 ===== -->
+    <nav class="toc">
+      <h2>목차</h2>
+      <ul>
+        <li><a href="#intro">처음 위치</a></li>
+        <li><a href="#school">학교 생활</a></li>
+        <li><a href="#interest">관심 분야</a></li>
+        <li><a href="#hobby">취미</a></li>
+        <li><a href="#work">활동과 수상</a></li>
+        <li><a href="#plan">앞으로의 계획</a></li>
+        <li><a href="#links">외부 링크</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===== 가운데 본문 ===== -->
+    <main class="content">
+      <!-- (2) 이름 -->
+      <h1 id="intro">정예준</h1>
+      <p class="subtitle">우리반 백과, 우리 반 모두의 백과사전.</p>
+
+      <!-- ===== 인물 정보 상자 ===== -->
+      <aside class="infobox">
+        <div class="infobox-title">정예준</div>
+        <!-- (3) 사진 파일을 이 폴더에 넣고 photo.jpg 처럼 파일 이름을 적으세요 -->
+        <img src="istockphoto-2207512233-612x612.jpg" alt="정예준의 사진">
+        <table>
+          <caption>기본 정보</caption>
+          <tbody>
+            <!-- (4) 표의 내용을 자신의 것으로 바꾸세요. 줄을 더 넣어도 됩니다 -->
+            <tr><th>출생</th><td>2009년 11월 23일</td></tr>
+            <tr><th>학교</th><td>서울금융고등학교</td></tr>
+            <tr><th>학과</th><td>소프트웨어과</td></tr>
+            <tr><th>관심 분야</th><td>소프트웨어</td></tr>
+            <tr><th>좌우명</th><td style="color: #f8f9fa;">다크모드좀쓰자</td></tr>
+          </tbody>
+        </table>
+      </aside>
+
+      <!-- (5) 첫 문단: 나를 한두 문장으로 소개 -->
+      <p><strong>정예준</strong>(2009년 11월 23일 ~)은 경기도에 거주하는 서울금융고등학교 2학년 학생이다.</p>
+
+      <section>
+        <h2 id="school">학교 생활</h2>
+        <p>수면을 좋아하고 점심을 잘 안먹으며 학교 생활을 하고 있다.<br><span style="color: #ffffff">밥 안먹어도 잘 사는듯.</span></p>
+      </section>
+
+      <section>
+        <h2 id="interest">관심 분야</h2>
+        <ul>
+          <li>소프트웨어</li>
+          <li>심리학</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="hobby">취미</h2>
+        <ul>
+          <li>음악듣기</li>
+          <li>게임하기</li>
+          <li>지하철타고돌아다니기</li>
+          <li style="color: #fff;">멍때리기</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="work">활동과 수상</h2>
+        <ul>
+          <li>수상경력이있긴있는데뭐있는지까먹음</li>
+          <li>활동도뭔가를했었는데뭐했더라</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="plan">앞으로의 계획</h2>
+        <p>뇌빼고살기</p>
+      </section>
+
+      <section>
+        <h2 id="links">외부 링크</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/ko/">MDN 웹 문서</a></li>
+        </ul>
+        <p class="footnote">이 문서는 수업 실습용으로 작성한 문서입니다.</p>
+      </section>
+    </main>
+    <!-- 오른쪽 외관 설정 패널 -->
+    <aside class="appearance">
+      <h2>외관</h2>
+      
+      <fieldset class="panel-group">
+        <legend>너비</legend>
+        <label><input type="radio" name="width" value="standard" checked> 표준</label>
+        <label><input type="radio" name="width" value="wide"> 넓게</label>
+        <legend>글</legend>
+        <label><input type="radio" name="fontsize" value="small"> 작음</label>
+        <label><input type="radio" name="fontsize" value="standard" checked> 표준</label>
+        <label><input type="radio" name="fontsize" value="large"> 큼</label>
+        <legend>색</legend>
+        <label><input type="radio" name="theme" value="auto" checked> 자동</label>
+        <label><input type="radio" name="theme" value="light"> 라이트</label>
+        <label><input type="radio" name="theme" value="dark"> 다크</label>
+      </fieldset>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

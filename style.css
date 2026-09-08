@@ -1,0 +1,217 @@
+/* =========================================================
+   우리반 백과 - style.css (기본 제공)
+   1. 색 값은 모두 아래 :root 안에 모아 두었다.
+   2. 크기는 rem 단위로 적었다.
+   ========================================================= */
+
+/* ---------- 색과 크기 값 모음 (CSS 변수) ---------- */
+/* :root 안에 변수 1줄 추가 */
+:root {
+  --bg: #ffffff;
+  --text: #202122;
+  --sub-text: #54595d;
+  --link: #3366cc;
+  --link-visited: #6b4ba1;
+  --border: #a2a9b1;
+  --line: #c8ccd1;
+  --box-bg: #f8f9fa;
+  --box-head: #cddbf0;
+  --content-max: 1200px;
+  --font-scale: 1; /* [추가] 글자 크기 기본 배율 */
+}
+
+/* 다크 모드 색상 변수 */
+html[data-theme="dark"] {
+  --bg: #101418;
+  --text: #eaecf0;
+  --sub-text: #a2a9b1;
+  --link: #8ab4f8;
+  --link-visited: #c5a3e0;
+  --border: #54595d;
+  --line: #3a4048;
+  --box-bg: #1b2027;
+  --box-head: #2a3a55;
+}
+
+/* '자동' 선택 시 - 기기 설정이 다크 모드일 때 적용 */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] {
+    --bg: #101418;
+    --text: #eaecf0;
+    --sub-text: #a2a9b1;
+    --link: #8ab4f8;
+    --link-visited: #c5a3e0;
+    --border: #54595d;
+    --line: #3a4048;
+    --box-bg: #1b2027;
+    --box-head: #2a3a55;
+  }
+}
+
+/* :root 바로 아래에 속성 선택자 규칙 추가 */
+html[data-fontsize="small"] { --font-scale: 0.875; }
+html[data-fontsize="large"] { --font-scale: 1.25; }
+html[data-width="wide"] { --content-max: 100%; }
+
+/* html 태그 글자 크기 수정 */
+/* 바꾸기 전: font-size: 16px; */
+html {
+  font-size: calc(16px * var(--font-scale));
+  scroll-behavior: smooth;
+}
+
+/* ---------- 문서 전체 ---------- */
+* { box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.dark13 {
+  color: #eaecf0;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:visited { color: var(--link-visited); }
+a:hover { text-decoration: underline; }
+a:focus-visible,
+input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* ---------- 맨 위 머리글 ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  width: 46px; height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: serif; font-size: 1.5rem;
+  color: var(--sub-text);
+}
+.sitename strong {
+  display: block;
+  font-family: serif; font-weight: 400;
+  font-size: 1.5rem; letter-spacing: 0.15em;
+}
+.sitename span { font-size: 0.75rem; color: var(--sub-text); }
+
+/* ---------- 전체 배치 (그리드) ---------- */
+.wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 200px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ---------- 왼쪽 목차 ---------- */
+.toc { position: sticky; top: 1rem; font-size: 0.8125rem; }
+.toc h2 {
+  font-size: 0.875rem; margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0.45rem 0; }
+
+/* ---------- 가운데 본문 ---------- */
+.content h1 {
+  font-family: serif; font-weight: 400;
+  font-size: 1.9rem;
+  margin: 0 0 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+.subtitle { font-size: 0.8125rem; color: var(--sub-text); margin-bottom: 1.2rem; }
+.content h2 {
+  font-family: serif; font-weight: 400;
+  font-size: 1.4rem;
+  margin: 1.8rem 0 0.7rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.content p { margin: 0.7rem 0; }
+.content ul { margin: 0.5rem 0; padding-left: 1.3rem; }
+.footnote { font-size: 0.8125rem; color: var(--sub-text); }
+
+/* ---------- 오른쪽 인물 정보 상자 ---------- */
+.infobox {
+  float: right;
+  width: 280px;
+  margin: 0 0 1rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--box-bg);
+  font-size: 0.8125rem;
+}
+.infobox .infobox-title {
+  background: var(--box-head);
+  text-align: center;
+  font-weight: bold;
+  padding: 0.4rem;
+}
+.infobox img {
+  display: block;
+  width: calc(100% - 1.2rem);
+  height: auto;
+  margin: 0.6rem;
+  border: 1px solid var(--line);
+}
+.infobox table { width: 100%; border-collapse: collapse; }
+.infobox caption {
+  background: var(--box-head);
+  font-weight: bold;
+  padding: 0.35rem;
+}
+.infobox th, .infobox td {
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--line);
+}
+.infobox th { width: 35%; }
+
+/* 오른쪽 외관 설정 패널 스타일 추가 */
+.appearance { position: sticky; top: 1rem; }
+.appearance h2 {
+  font-size: 0.875rem; margin: 0 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+.panel-group { border: 0; margin: 0 0 1.2rem; padding: 0; }
+.panel-group legend {
+  padding: 0; margin-bottom: 0.3rem;
+  font-size: 0.75rem; color: var(--sub-text);
+}
+.panel-group label {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 0.22rem 0;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+/* 맨 아래 미디어 쿼리(화면이 좁을 때) 수정 */
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+  .toc, .appearance { position: static; } /* [수정] .appearance 추가 */
+  .infobox { float: none; width: 100%; margin: 0 0 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
